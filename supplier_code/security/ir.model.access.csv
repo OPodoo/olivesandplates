@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+view_trade_price,view.trade.price,model_trade_price,purchase.group_purchase_user,1,1,1,1
+view_trade_price_lines,view.trade.price.lines,model_trade_price_line,purchase.group_purchase_user,1,1,1,1
+view_tp_uom,view.tp.uom,model_tp_uom,purchase.group_purchase_user,1,1,1,1
