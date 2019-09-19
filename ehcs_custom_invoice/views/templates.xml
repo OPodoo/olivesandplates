@@ -1,0 +1,18 @@
+<odoo>
+    <template id="account_invoice_report_template" inherit_id="account.report_invoice_document">
+        <xpath expr="//p[@t-if='o.reference']" position="replace">
+            <p>
+               <b><u>Our Banking Details : </u></b><br/>
+               <b>Account Name: </b> <span><t t-esc="o.partner_bank_id.partner_id.name"/></span><br/>
+               <b>Bank: </b> <span><t t-esc="o.partner_bank_id.bank_id.name"/></span><br/>
+               <b>Branch: </b><span><t t-esc="o.partner_bank_id.bank_id.bic"/></span><br/>
+               <b>Account Number: </b><span><t t-esc="o.partner_bank_id.acc_number"/></span><br/>
+            </p>
+            <p>
+                Please use the following as reference for your payment : <b><span t-field="o.reference"/></b>
+            </p>
+        </xpath>
+        <xpath expr="//p[@t-if='o.payment_term_id']" position="replace">
+        </xpath>
+    </template>
+</odoo>
