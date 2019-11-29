@@ -26,7 +26,7 @@ class AccountInvoiceLine(models.Model):
     
     cash = fields.Float("Cash")
     credit_card = fields.Float("Bank")
-    voucher = fields.Float("voucher")
+    voucher = fields.Float("Voucher")
     mobile = fields.Float("Mobile")
     eft = fields.Float("EFT")
     
@@ -38,10 +38,14 @@ class AccountPayment(models.Model):
     @api.onchange('journal_id')
     def onchange_code(self):
         for rec in self:
+            if rec.journal_id.name == 'Bank':
+                rec.amount = rec.mapped('invoice_ids').tot_credit_card
+            if rec.journal_id.name == 'Cash':
+                rec.amount = rec.mapped('invoice_ids').tot_cash
             if rec.journal_id.name == 'Voucher':
                 print("rec.journal_id.name",rec.journal_id.name)
-                rec.amount = rec.mapped('invoice_ids').tot_cash
-            if rec.journal_id.name == 'Mobaile':
+                rec.amount = rec.mapped('invoice_ids').tot_voucher
+            if rec.journal_id.name == 'Mobile':
                 print("rec.journal_id.name",rec.journal_id.name)
                 rec.amount = rec.mapped('invoice_ids').tot_mobile
             if rec.journal_id.name == 'EFT':

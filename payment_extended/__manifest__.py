@@ -4,6 +4,7 @@
     'name' : 'Payment Extended',
     'depends': ['sale_management'],
     'data': [
+    	'views/account_jornal_data.xml',
         'views/sale.xml',
         'views/account_invoice_view.xml',
         ],

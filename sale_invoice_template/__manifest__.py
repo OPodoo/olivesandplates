@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 {
-	"name" : "Sale Invoice Report",
-	"version" : "12.0.0.0",
+	"name" : "Sale Invoice Customised Report ",
+	"version" : "12.0.2",
+	'sequence': 1,
 	"depends" : ['base','sale_management','account'],
-	"author": "Raghav",
-	"website" : "",
-	"category" : "",
+	'author': "Kiran Kantesariya",
+	"website" : "www.maisolutionsllc.com",
+	"category" : "Sales Management",
 	"description": """ Sale Invoice Report""",
 	'summary': 'Sale Invoice Report',
-	"currency": 'EUR',
 	"data": [
 		'views/sale_invoice_view.xml',
 	],
