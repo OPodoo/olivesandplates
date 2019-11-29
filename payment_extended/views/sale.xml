@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <record id="sale_order_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='name']" position="after">
+                <field name="cash"/>
+                <field name="credit_card"/>
+                <field name="voucher"/>
+                <field name="mobile"/>
+                <field name="eft"/>
+            </xpath>
+            <field name="amount_tax" position="after">
+                <field name="tot_cash"/>
+                <field name="tot_credit_card"/>
+                <field name="tot_voucher"/>
+                <field name="tot_mobile"/>
+                <field name="tot_eft"/>
+            </field>
+        </field>
+    </record>
+    </data>
+</odoo>

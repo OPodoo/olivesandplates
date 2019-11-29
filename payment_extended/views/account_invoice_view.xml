@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="payment_account_invocie_inherit" model="ir.ui.view">
+            <field name="name">account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page/field[@name='invoice_line_ids']/tree/field[@name='name']" position="after">
+                    <field name="cash"/>
+                    <field name="credit_card"/>
+                    <field name="voucher"/>
+                    <field name="mobile"/>
+                    <field name="eft"/>
+                </xpath>
+                <xpath expr="//notebook[last()]" position="inside">
+                    <page string="Cash Up Summary">
+                        <group colspan="2" col="2">
+                            <field name="tot_cash"/>
+                            <field name="tot_credit_card"/>
+                            <field name="tot_voucher"/>
+                            <field name="tot_mobile"/>
+                            <field name="tot_eft"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

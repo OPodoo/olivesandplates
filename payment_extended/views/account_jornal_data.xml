@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    	<record id="voucher_journal_id" model="account.account">
+          <field name="code">VOC</field>
+          <field name="name">Voucher</field>
+          <field name="user_type_id" ref="account.data_account_type_expenses"></field>
+      	</record>
+
+      	<record id="mobile_journal_id" model="account.account">
+          <field name="code">MOB</field>
+          <field name="name">Mobile</field>
+          <field name="user_type_id" ref="account.data_account_type_expenses"></field>
+      	</record>
+
+      	<record id="eft_journal_id" model="account.account">
+          <field name="code">EFT</field>
+          <field name="name">EFT</field>
+          <field name="user_type_id" ref="account.data_account_type_expenses"></field>
+      	</record>
+      	
+        <record id="voucher_journal" model="account.journal">
+            <field name="name">Voucher</field>
+            <field name="code">VOC</field>
+           	<field name="type">bank</field>
+           	<field name="default_credit_account_id" ref="payment_extended.voucher_journal_id"/>
+            <field name="default_debit_account_id" ref="payment_extended.voucher_journal_id"/>
+        </record> 
+
+        <record id="mobile_journal" model="account.journal">
+            <field name="name">Mobile</field>
+            <field name="code">MOB</field>
+           	<field name="type">bank</field>
+           	<field name="default_credit_account_id" ref="payment_extended.mobile_journal_id"/>
+            <field name="default_debit_account_id" ref="payment_extended.mobile_journal_id"/>
+        </record> 
+
+        <record id="eft_journal" model="account.journal">
+            <field name="name">EFT</field>
+            <field name="code">EFT</field>
+           	<field name="type">bank</field>
+           	<field name="default_credit_account_id" ref="payment_extended.eft_journal_id"/>
+            <field name="default_debit_account_id" ref="payment_extended.eft_journal_id"/>
+        </record>
+
+
+    </data>
+</odoo>
