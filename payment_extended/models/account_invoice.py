@@ -7,12 +7,13 @@ class AccountInvoice(models.Model):
 
     @api.depends('invoice_line_ids')
     def _total_payment(self):
-        if self.invoice_line_ids:
-            self.tot_cash = sum(self.mapped('invoice_line_ids.cash'))
-            self.tot_credit_card = sum(self.mapped('invoice_line_ids.credit_card'))
-            self.tot_voucher = sum(self.mapped('invoice_line_ids.voucher'))
-            self.tot_mobile = sum(self.mapped('invoice_line_ids.mobile'))
-            self.tot_eft = sum(self.mapped('invoice_line_ids.eft'))
+        for record in self:
+            if record.invoice_line_ids:
+                record.tot_cash = sum(record.mapped('invoice_line_ids.cash'))
+                record.tot_credit_card = sum(record.mapped('invoice_line_ids.credit_card'))
+                record.tot_voucher = sum(record.mapped('invoice_line_ids.voucher'))
+                record.tot_mobile = sum(record.mapped('invoice_line_ids.mobile'))
+                record.tot_eft = sum(record.mapped('invoice_line_ids.eft'))
 
     tot_cash = fields.Float(compute='_total_payment', string='Total Cash', readonly=True, store=True)
     tot_credit_card = fields.Float(compute='_total_payment', string='Total Credit', readonly=True, store=True)

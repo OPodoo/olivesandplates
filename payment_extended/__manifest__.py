@@ -3,6 +3,8 @@
 {
     'name' : 'Payment Extended',
     'depends': ['sale_management'],
+	'author': "Kiran Kantesariya",
+	"support" : "kiran.backup0412@gmail.com",    
     'data': [
     	'views/account_jornal_data.xml',
         'views/sale.xml',
