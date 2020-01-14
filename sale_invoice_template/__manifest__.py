@@ -5,7 +5,7 @@
 	'sequence': 1,
 	"depends" : ['base','sale_management','account'],
 	'author': "Kiran Kantesariya",
-	"support" : "kiran.backup0412@gmail.com",
+	"website" : "www.maisolutionsllc.com",
 	"category" : "Sales Management",
 	"description": """ Sale Invoice Report""",
 	'summary': 'Sale Invoice Report',
